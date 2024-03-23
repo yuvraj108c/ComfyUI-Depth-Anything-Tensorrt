@@ -6,6 +6,7 @@ import pycuda.autoinit
 import pycuda.driver as cuda
 import tensorrt as trt
 from utils import *
+from tqdm import tqdm
 
 transform = Compose(
     [
@@ -38,9 +39,9 @@ def run(args):
         d_output = cuda.mem_alloc(h_output.nbytes)
         stream = cuda.Stream()
 
-        frame_count = 0
         cap = cv2.VideoCapture(args.video)
-
+        frame_count = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
+        pbar = tqdm(total=frame_count)
         depth_frames = []
         
         while cap.isOpened():
@@ -70,8 +71,9 @@ def run(args):
             depth = cv2.cvtColor(depth, cv2.COLOR_RGB2BGR)
 
             depth_frames.append(depth)
-            frame_count +=1
-
+            pbar.update(1)
+            
+        pbar.close()
         cap.release()
 
         # save video

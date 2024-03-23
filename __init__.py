@@ -38,7 +38,8 @@ class DepthAnythingTensorrtNode:
 
         video_save_path = os.path.join(folder_paths.get_temp_directory(),f"result_{temp_video_name}")
 
-        # run inference
+        # run inference using subprocess because of this issue: 
+        # pycuda._driver.LogicError: explicit_context_dependent failed: invalid device context - no currently active context?
         subprocess.run(f"python {folder_paths.get_folder_paths('custom_nodes')[0]}/ComfyUI-Depth-Anything-Tensorrt/inference.py --engine {os.path.join(ENGINE_DIR,engine)} --video {temp_video_path} --save_path {video_save_path}", shell=True)
        
         # convert video_frames as tensor
