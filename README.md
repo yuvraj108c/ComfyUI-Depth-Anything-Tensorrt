@@ -9,9 +9,9 @@
 
 </div>
 
-<!-- <p align="center">
-  <img src="assets/davis_dolphins_result.gif" height="225px" width="720px" />
-</p> -->
+<p align="center">
+  <img src="assets/demo.gif" />
+</p>
 
 This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation
 
@@ -51,5 +51,5 @@ pip install -r requirements.txt
 
 ## 👏 Credits
 
-- [spacewalk01/depth-anything-tensorrt](https://raw.githubusercontent.com/spacewalk01/depth-anything-tensorrt)
+- [spacewalk01/depth-anything-tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt)
 - [martenwikman/depth-anything-tensorrt-docker](https://github.com/martenwikman/depth-anything-tensorrt-docker)
