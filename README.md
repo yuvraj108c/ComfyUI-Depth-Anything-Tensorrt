@@ -36,13 +36,14 @@ pip install -r requirements.txt
 
 ## 🛠️ Building Tensorrt Engine
 
-1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main). Modify and run the following command accordingly
+1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main) (518 x 518 resolution). If you want different resolutions, [follow this guide](https://github.com/spacewalk01/depth-anything-tensorrt?tab=readme-ov-file#-model-preparation)
+2. Modify and run the following command accordingly:
 
    ```bash
    trtexec --onnx=depth_anything_vitl4.onnx --saveEngine=depth_anything_vitl14.engine --fp16
    ```
 
-2. Place the engines inside ComfyUI `/models/depth_trt_engines` directory
+3. Place the engines inside ComfyUI `/models/depth_trt_engines` directory
 
 ## 🤖 Environment tested
 
