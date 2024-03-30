@@ -28,7 +28,7 @@ class DepthAnythingTensorrtNode:
     CATEGORY = "Depth Anything Tensorrt"
 
     def main(self, images, engine):
-        import pycuda.autoinit
+        import pycuda.autoprimaryctx as ctx
 
         TRT_LOGGER = trt.Logger(trt.Logger.WARNING)
 
@@ -61,7 +61,7 @@ class DepthAnythingTensorrtNode:
                 cuda.memcpy_dtoh_async(h_output, d_output, stream)
                 stream.synchronize()
                 depth = h_output
-            
+
                 # Process the depth output
                 depth = np.reshape(depth, output_shape[2:])
                 depth = (depth - depth.min()) / (depth.max() - depth.min()) * 255.0
@@ -73,6 +73,7 @@ class DepthAnythingTensorrtNode:
                 depth_frames.append(depth)
                 pbar.update(1)
 
+        del ctx
         result = torch.cat(depth_frames,dim=0)
         return (result,)
 
