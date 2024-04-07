@@ -66,7 +66,7 @@ class DepthAnythingTensorrtNode:
                 depth = np.reshape(depth, output_shape[2:])
                 depth = (depth - depth.min()) / (depth.max() - depth.min()) * 255.0
                 depth = depth.astype(np.uint8)
-                depth = cv2.resize(depth, (images.shape[2], images.shape[3]))
+                depth = cv2.resize(depth, (images.shape[3], images.shape[2]))
                 depth = cv2.cvtColor(depth, cv2.COLOR_RGB2BGR)
                 transform = transforms.Compose([transforms.ToTensor()])
                 depth = transform(depth).unsqueeze(0).permute(0, 2, 3, 1)
