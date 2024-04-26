@@ -37,12 +37,16 @@ pip install -r requirements.txt
 ## 🛠️ Building Tensorrt Engine
 
 1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main) (e.g depth_anything_vitl14.onnx)
-2. Edit paths inside `export_trt.py` accordingly and run it
-3. Place the engine inside ComfyUI `/models/tensorrt/depth-anything` directory
+2. Edit model paths inside `export_trt.py` accordingly and run it
+3. Place the exported engine inside ComfyUI `/models/tensorrt/depth-anything` directory
+
+## ☀️ Usage
+- Insert node via `tensorrt -> Depth Anything Tensorrt`
+- Choose the appropriate engine from the dropdown
 
 ## 🤖 Environment tested
 
-- Ubuntu 22.04 LTS, Cuda 12.3, Tensorrt 10.0.1, Python 3.10, L40s GPU
+- Ubuntu 22.04 LTS, Cuda 12.3, Tensorrt 10.0.1, Python 3.10, RTX 4090 GPU
 - Windows (Not tested)
 
 ## 📝 Changelog
