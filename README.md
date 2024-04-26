@@ -16,14 +16,13 @@
 This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (up to 5x faster)
 
 ## ⏱️ Performance
-30 FPS on a RTX 4090, FP16 (Depth Anything Large Model)
+Note: Results below were benchmarked on FP16 engines inside ComfyUI
 
-[Original Source](https://github.com/spacewalk01/depth-anything-tensorrt/blob/main/README.md#%EF%B8%8F-performance)
-| Device | Model | Model Input (WxH) | Image Resolution (WxH)|Inference Time(ms)|
+| Device | Model | Model Input (WxH) | Image Resolution (WxH)|FPS
 |:---------------:|:------------:|:------------:|:------------:|:------------:|
-| RTX4090 | Depth-Anything-S |518x518 | 1280x720 | 3 |
-| RTX4090 | Depth-Anything-B |518x518 | 1280x720 | 6 |
-| RTX4090 | Depth-Anything-L |518x518 | 1280x720 | 12 |
+| RTX4090 | Depth-Anything-S |518x518 | 1280x720 | 35
+| RTX4090 | Depth-Anything-B |518x518 | 1280x720 | 33
+| RTX4090 | Depth-Anything-L |518x518 | 1280x720 | 24
 
 ## 🚀 Installation
 
