@@ -13,7 +13,7 @@
   <img src="assets/demo.gif" />
 </p>
 
-This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation
+This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (30 fps, up to 5x faster)
 
 ## ⏱️ Performance
 
