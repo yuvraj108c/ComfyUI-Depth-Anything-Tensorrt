@@ -16,7 +16,7 @@
 This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (up to 5x faster)
 
 ## ⏱️ Performance
-Note: Results below were benchmarked on FP16 engines inside ComfyUI
+Note: The following results were benchmarked on FP16 engines inside ComfyUI
 
 | Device | Model | Model Input (WxH) | Image Resolution (WxH)|FPS
 |:---------------:|:------------:|:------------:|:------------:|:------------:|
@@ -37,11 +37,11 @@ pip install -r requirements.txt
 ## 🛠️ Building Tensorrt Engine
 
 1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main) (e.g depth_anything_vitl14.onnx)
-2. Edit model paths inside `export_trt.py` accordingly and run it
+2. Edit model paths inside [export_trt.py](export_trt.py) accordingly and run `python export_trt.py`
 3. Place the exported engine inside ComfyUI `/models/tensorrt/depth-anything` directory
 
 ## ☀️ Usage
-- Insert node via `tensorrt -> Depth Anything Tensorrt`
+- Insert node via `Right Click -> tensorrt -> Depth Anything Tensorrt`
 - Choose the appropriate engine from the dropdown
 
 ## 🤖 Environment tested
