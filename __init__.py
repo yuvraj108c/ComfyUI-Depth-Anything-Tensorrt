@@ -9,7 +9,7 @@ from .utilities import Engine
 
 ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt/depth-anything")
 
-class DepthAnythingTensorrtNode:
+class DepthAnythingTensorrt:
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -21,7 +21,7 @@ class DepthAnythingTensorrtNode:
     RETURN_NAMES = ("IMAGE",)
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "main"
-    CATEGORY = "Depth Anything Tensorrt"
+    CATEGORY = "tensorrt"
 
     def main(self, images, engine):
 
@@ -58,11 +58,11 @@ class DepthAnythingTensorrtNode:
 
 
 NODE_CLASS_MAPPINGS = { 
-    "DepthAnythingTensorrtNode" : DepthAnythingTensorrtNode,
+    "DepthAnythingTensorrt" : DepthAnythingTensorrt,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-     "DepthAnythingTensorrtNode" : "Depth Anything Tensorrt",
+     "DepthAnythingTensorrt" : "Depth Anything Tensorrt",
 }
 
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']
