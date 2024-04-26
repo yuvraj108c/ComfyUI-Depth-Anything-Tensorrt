@@ -55,7 +55,7 @@ pip install -r requirements.txt
 
   - Update to tensorrt 10.0.1
   - Massive code refactor, remove trtexec, remove pycuda, show engine building progress
-  - Update and standardise engine directory for future tensorrt custom nodes suite
+  - Update and standardise engine directory and node category for upcoming tensorrt custom nodes suite
 
 - 7/04/2024
 
