@@ -39,7 +39,7 @@ pip install -r requirements.txt
 1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
 2. Edit paths inside `export_trt.py` accordingly and run it
 
-3. Place the engine inside ComfyUI `/models/tensorrt/depth-anything` directory
+3. Create and place the engine inside ComfyUI `/models/tensorrt/depth-anything` directory
 
 ## 🤖 Environment tested
 
@@ -51,8 +51,8 @@ pip install -r requirements.txt
 - 26/04/2024
 
   - Update to tensorrt 10.0.1
-  - Massive code refactor, remove trtexec, show engine building progress
-  - Update and standardise engine directory for future tensorrt custom nodes compatibility
+  - Massive code refactor, remove trtexec, remove pycuda, show engine building progress
+  - Update and standardise engine directory for future tensorrt custom nodes suite
 
 - 7/04/2024
 

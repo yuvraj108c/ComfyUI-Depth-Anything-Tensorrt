@@ -3,11 +3,11 @@ import folder_paths
 import numpy as np
 import torch.nn.functional as F
 import torch
-import comfy
+from comfy.utils import ProgressBar
 import cv2
 from .utilities import Engine
 
-ENGINE_DIR = os.path.join(folder_paths.models_dir,"depth_trt_engines")
+ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt/depth-anything")
 
 class DepthAnythingTensorrtNode:
     @classmethod
@@ -32,7 +32,7 @@ class DepthAnythingTensorrtNode:
         engine.allocate_buffers()
         cudaStream = torch.cuda.current_stream().cuda_stream
 
-        pbar = comfy.utils.ProgressBar(images.shape[0])
+        pbar = ProgressBar(images.shape[0])
         images = images.permute(0, 3, 1, 2)
         images_resized = F.interpolate(images, size=(518,518), mode='bilinear', align_corners=False)
         images_list = list(torch.split(images_resized, split_size_or_sections=1))
