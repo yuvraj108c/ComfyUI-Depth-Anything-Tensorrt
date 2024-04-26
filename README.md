@@ -36,7 +36,7 @@ pip install -r requirements.txt
 
 ## 🛠️ Building Tensorrt Engine
 
-1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
+1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main) (e.g depth_anything_vitl14.onnx)
 2. Edit paths inside `export_trt.py` accordingly and run it
 
 3. Create and place the engine inside ComfyUI `/models/tensorrt/depth-anything` directory
@@ -56,7 +56,7 @@ pip install -r requirements.txt
 
 - 7/04/2024
 
-  - Fix image resize bug during depth map post processing bug
+  - Fix image resize bug during depth map post processing
 
 - 30/03/2024
 
