@@ -38,8 +38,7 @@ pip install -r requirements.txt
 
 1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main) (e.g depth_anything_vitl14.onnx)
 2. Edit paths inside `export_trt.py` accordingly and run it
-
-3. Create and place the engine inside ComfyUI `/models/tensorrt/depth-anything` directory
+3. Place the engine inside ComfyUI `/models/tensorrt/depth-anything` directory
 
 ## 🤖 Environment tested
 
