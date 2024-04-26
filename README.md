@@ -4,7 +4,7 @@
 
 [![python](https://img.shields.io/badge/python-3.10.12-green)](https://www.python.org/downloads/release/python-31012/)
 [![cuda](https://img.shields.io/badge/cuda-12.3-green)](https://developer.nvidia.com/cuda-downloads)
-[![trt](https://img.shields.io/badge/TRT-8.6-green)](https://developer.nvidia.com/tensorrt)
+[![trt](https://img.shields.io/badge/TRT-10.0-green)](https://developer.nvidia.com/tensorrt)
 [![mit](https://img.shields.io/badge/license-MIT-blue)](https://github.com/spacewalk01/depth-anything-tensorrt/blob/main/LICENSE)
 
 </div>
@@ -36,21 +36,38 @@ pip install -r requirements.txt
 
 ## 🛠️ Building Tensorrt Engine
 
-1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main) (518 x 518 resolution). If you want different resolutions, [follow this guide](https://github.com/spacewalk01/depth-anything-tensorrt?tab=readme-ov-file#-model-preparation)
-2. Modify and run the following command accordingly:
+1. Download one of the available [onnx models](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
+2. Edit paths inside `export_trt.py` accordingly and run it
 
-   ```bash
-   trtexec --onnx=depth_anything_vitl4.onnx --saveEngine=depth_anything_vitl14.engine --fp16
-   ```
-
-3. Place the engines inside ComfyUI `/models/depth_trt_engines` directory
+3. Place the engine inside ComfyUI `/models/tensorrt/depth-anything` directory
 
 ## 🤖 Environment tested
 
-- Ubuntu 22.04 LTS, Cuda 12.3, Tensorrt 8.6.1, Python 3.10, A10G GPU
+- Ubuntu 22.04 LTS, Cuda 12.3, Tensorrt 10.0.1, Python 3.10, L40s GPU
 - Windows (Not tested)
+
+## 📝 Changelog
+
+- 26/04/2024
+
+  - Update to tensorrt 10.0.1
+  - Massive code refactor, remove trtexec, show engine building progress
+  - Update and standardise engine directory for future tensorrt custom nodes compatibility
+
+- 7/04/2024
+
+  - Fix image resize bug during depth map post processing bug
+
+- 30/03/2024
+
+  - Fix CUDNN_STATUS_MAPPING_ERROR
+
+- 27/03/2024
+
+  - Major refactor and optimisation (remove subprocess)
 
 ## 👏 Credits
 
+- [NVIDIA/Stable-Diffusion-WebUI-TensorRT](https://github.com/NVIDIA/Stable-Diffusion-WebUI-TensorRT)
 - [spacewalk01/depth-anything-tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt)
 - [martenwikman/depth-anything-tensorrt-docker](https://github.com/martenwikman/depth-anything-tensorrt-docker)
