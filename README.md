@@ -71,6 +71,14 @@ pip install -r requirements.txt
 
 ## 👏 Credits
 
+```bibtex
+@inproceedings{depthanything,
+      title={Depth Anything: Unleashing the Power of Large-Scale Unlabeled Data}, 
+      author={Yang, Lihe and Kang, Bingyi and Huang, Zilong and Xu, Xiaogang and Feng, Jiashi and Zhao, Hengshuang},
+      booktitle={CVPR},
+      year={2024}
+}
+```
 - [NVIDIA/Stable-Diffusion-WebUI-TensorRT](https://github.com/NVIDIA/Stable-Diffusion-WebUI-TensorRT)
 - [spacewalk01/depth-anything-tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt)
 - [martenwikman/depth-anything-tensorrt-docker](https://github.com/martenwikman/depth-anything-tensorrt-docker)
