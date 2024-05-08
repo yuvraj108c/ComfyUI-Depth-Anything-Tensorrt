@@ -50,6 +50,11 @@ pip install -r requirements.txt
 - Windows (Not tested, but should work)
 
 ## 📝 Changelog
+- 08/05/2024
+
+  - Clean utilities.py
+  - Fix engine path in custom node
+  - Add citation in readme
 
 - 26/04/2024
 
