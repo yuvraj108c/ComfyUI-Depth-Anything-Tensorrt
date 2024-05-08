@@ -7,7 +7,7 @@ from comfy.utils import ProgressBar
 import cv2
 from .utilities import Engine
 
-ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt/depth-anything")
+ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt", "depth-anything")
 
 class DepthAnythingTensorrt:
     @classmethod
