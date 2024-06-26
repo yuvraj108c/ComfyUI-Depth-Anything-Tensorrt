@@ -1,0 +1,15 @@
+[project]
+name = "comfyui-depth-anything-tensorrt"
+description = "This extension provides a ComfyUI Custom Node implementation of the [a/Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation"
+version = "1.0.0"
+license = "LICENSE"
+dependencies = ["tensorrt", "opencv-python", "polygraphy"]
+
+[project.urls]
+Repository = "https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt"
+#  Used by Comfy Registry https://comfyregistry.org
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "ComfyUI-Depth-Anything-Tensorrt"
+Icon = ""
