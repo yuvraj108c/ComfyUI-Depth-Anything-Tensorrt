@@ -69,6 +69,7 @@ pip install -r requirements.txt
 - 02/07/2024
 
   - Add Depth Anything V2 onnx models + benchmarks
+  - Merge [PR](https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt/pull/9) for engine caching in memory
 
 - 26/04/2024
 
