@@ -10,6 +10,10 @@ from .utilities import Engine
 ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt", "depth-anything")
 
 class DepthAnythingTensorrt:
+    def __init__(self):
+        self.engine = None
+        self.engine_label = None
+        
     @classmethod
     def INPUT_TYPES(s):
         return {
