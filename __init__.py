@@ -6,6 +6,7 @@ import torch
 from comfy.utils import ProgressBar
 import cv2
 from .utilities import Engine
+from .engine_builder_node import DepthAnythingEngineBuilder
 
 ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt", "depth-anything")
 
@@ -64,10 +65,12 @@ class DepthAnythingTensorrt:
 
 NODE_CLASS_MAPPINGS = { 
     "DepthAnythingTensorrt" : DepthAnythingTensorrt,
+    "DepthAnythingEngineBuilder" : DepthAnythingEngineBuilder,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
      "DepthAnythingTensorrt" : "Depth Anything Tensorrt",
+     "DepthAnythingEngineBuilder" : "Depth Anything Engine Builder",
 }
 
 __all__ = ['NODE_CLASS_MAPPINGS', 'NODE_DISPLAY_NAME_MAPPINGS']

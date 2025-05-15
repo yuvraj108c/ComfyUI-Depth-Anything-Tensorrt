@@ -1,6 +1,6 @@
 import torch
 import time
-from utilities import Engine
+from .utilities import Engine
 
 def export_trt(trt_path: str, onnx_path: str, use_fp16: bool):
     engine = Engine(trt_path)
@@ -18,4 +18,5 @@ def export_trt(trt_path: str, onnx_path: str, use_fp16: bool):
 
     return ret
 
-export_trt(trt_path="./depth_anything_vitl14-fp16.engine", onnx_path="./depth_anything_vitl14.onnx", use_fp16=True)
+if __name__ == "__main__":
+    export_trt(trt_path="./depth_anything_vitl14-fp16.engine", onnx_path="./depth_anything_vitl14.onnx", use_fp16=True)
