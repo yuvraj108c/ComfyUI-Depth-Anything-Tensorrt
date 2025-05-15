@@ -1,6 +1,11 @@
 import torch
 import time
-from .utilities import Engine
+import sys
+
+try:
+    from .utilities import Engine
+except ImportError:
+    from utilities import Engine
 
 def export_trt(trt_path: str, onnx_path: str, use_fp16: bool):
     engine = Engine(trt_path)
