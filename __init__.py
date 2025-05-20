@@ -9,6 +9,7 @@ from .utilities import Engine
 from .engine_builder_node import DepthAnythingEngineBuilder
 
 ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt", "depth-anything")
+os.makedirs(ENGINE_DIR, exist_ok=True)
 
 class DepthAnythingTensorrt:
     def __init__(self):
