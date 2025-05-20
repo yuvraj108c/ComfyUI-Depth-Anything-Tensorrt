@@ -1,6 +1,10 @@
 import torch
 import time
 import sys
+import os
+import argparse
+
+sys.path.append(os.path.dirname(__file__))
 
 try:
     from .utilities import Engine
@@ -8,6 +12,9 @@ except ImportError:
     from utilities import Engine
 
 def export_trt(trt_path: str, onnx_path: str, use_fp16: bool):
+    if not os.path.isfile(onnx_path):
+        raise FileNotFoundError(f"Onnx file doesn't exist: {onnx_path}")
+
     engine = Engine(trt_path)
 
     torch.cuda.empty_cache()
@@ -24,4 +31,28 @@ def export_trt(trt_path: str, onnx_path: str, use_fp16: bool):
     return ret
 
 if __name__ == "__main__":
-    export_trt(trt_path="./depth_anything_vitl14-fp16.engine", onnx_path="./depth_anything_vitl14.onnx", use_fp16=True)
+    parser = argparse.ArgumentParser(
+        description="Export TensorRT engine from ONNX model."
+    )
+    parser.add_argument(
+        "--trt-path",
+        type=str,
+        default="./depth_anything_vitl14-fp16.engine",
+        help="Path to save the TensorRT engine file.",
+    )
+    parser.add_argument(
+        "--onnx-path",
+        type=str,
+        default="./depth_anything_vitl14.onnx",
+        help="Path to the ONNX model file.",
+    )
+    parser.add_argument(
+        "--use-fp32",
+        action="store_true",
+        help="Use FP32 precision (default is FP16).",
+    )
+    args = parser.parse_args()
+
+    export_trt(
+        trt_path=args.trt_path, onnx_path=args.onnx_path, use_fp16=not args.use_fp32
+    )
