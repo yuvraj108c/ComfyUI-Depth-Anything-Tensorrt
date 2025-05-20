@@ -46,8 +46,19 @@ cd ./ComfyUI-Depth-Anything-Tensorrt
 pip install -r requirements.txt
 ```
 
-## 🛠️ Building Tensorrt Engine
+## 🛠️ Building TensorRT Engine
 
+There are two ways to build TensorRT engines:
+
+### Method 1: Using the EngineBuilder Node
+1. Insert node by `Right Click -> tensorrt -> Depth Anything Engine Builder`
+2. Select the model version (v1 or v2) and size (small, base, or large)
+3. Optionally customize the engine name, FP16 settings, and onnx path
+4. Run the workflow to build the engine
+
+The engine will be automatically downloaded and built in the specified location. Refresh the webpage or strike 'r' on your keyboard, and the new engine will appear in the Depth Anything Tensorrt node. 
+
+### Method 2: Manual Building
 1. Download one of the available onnx models:
    - [Depth Anything v1](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
    - [Depth Anything v2](https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/tree/main)
