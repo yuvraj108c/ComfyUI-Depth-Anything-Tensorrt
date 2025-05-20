@@ -62,7 +62,10 @@ The engine will be automatically downloaded and built in the specified location.
 1. Download one of the available onnx models:
    - [Depth Anything v1](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
    - [Depth Anything v2](https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/tree/main)
-2. Edit model paths inside [export_trt.py](export_trt.py) accordingly and run `python export_trt.py`
+2. Run the export script, e.g
+ ```bash 
+    python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./depth_anything_vitl14-fp16.engine
+ ```
 3. Place the exported engine inside ComfyUI `/models/tensorrt/depth-anything` directory
 
 ## ☀️ Usage
