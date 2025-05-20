@@ -9,11 +9,32 @@
 
 </div>
 
+This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (up to 14x faster than [comfyui_controlnet_aux](https://github.com/Fannovel16/comfyui_controlnet_aux))
+
 <p align="center">
   <img src="assets/demo.gif" />
 </p>
 
-This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (up to 14x faster than [comfyui_controlnet_aux](https://github.com/Fannovel16/comfyui_controlnet_aux))
+
+
+## ⭐ Support
+If you like my projects and wish to see updates and new features, please consider supporting me. It helps a lot! 
+
+[![ComfyUI-Depth-Anything-Tensorrt](https://img.shields.io/badge/ComfyUI--Depth--Anything--Tensorrt-blue?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt)
+[![ComfyUI-Upscaler-Tensorrt](https://img.shields.io/badge/ComfyUI--Upscaler--Tensorrt-blue?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Upscaler-Tensorrt)
+[![ComfyUI-Dwpose-Tensorrt](https://img.shields.io/badge/ComfyUI--Dwpose--Tensorrt-blue?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Dwpose-Tensorrt)
+[![ComfyUI-Rife-Tensorrt](https://img.shields.io/badge/ComfyUI--Rife--Tensorrt-blue?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Rife-Tensorrt)
+
+[![ComfyUI-Whisper](https://img.shields.io/badge/ComfyUI--Whisper-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Whisper)
+[![ComfyUI_InvSR](https://img.shields.io/badge/ComfyUI__InvSR-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI_InvSR)
+[![ComfyUI-FLOAT](https://img.shields.io/badge/ComfyUI--FLOAT-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-FLOAT)
+[![ComfyUI-Thera](https://img.shields.io/badge/ComfyUI--Thera-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Thera)
+[![ComfyUI-Video-Depth-Anything](https://img.shields.io/badge/ComfyUI--Video--Depth--Anything-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Video-Depth-Anything)
+[![ComfyUI-PiperTTS](https://img.shields.io/badge/ComfyUI--PiperTTS-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-PiperTTS)
+
+[![buy-me-coffees](https://i.imgur.com/3MDbAtw.png)](https://www.buymeacoffee.com/yuvraj108cZ)
+[![paypal-donation](https://i.imgur.com/w5jjubk.png)](https://paypal.me/yuvraj108c)
+---
 
 ## ⏱️ Performance (Depth Anything V1)
 
@@ -63,8 +84,8 @@ The engine will be automatically downloaded and built in the specified location.
    - [Depth Anything v1](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
    - [Depth Anything v2](https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/tree/main)
 2. Run the export script, e.g
- ```bash 
-    python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./depth_anything_vitl14-fp16.engine
+ ```bash
+python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./depth_anything_vitl14-fp16.engine
  ```
 3. Place the exported engine inside ComfyUI `/models/tensorrt/depth-anything` directory
 
@@ -80,10 +101,15 @@ The engine will be automatically downloaded and built in the specified location.
 
 ## 📝 Changelog
 
+- 20/05/2025
+
+  - Merge [PR#15](https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt/pull/15) for auto engine building inside comfyui by [ryanontheinside](https://github.com/ryanontheinside)
+  - Merge [PR#14](https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt/pull/14) for configurable params in export_trt.py by [rickstaa](https://github.com/rickstaa)
+    
 - 02/07/2024
 
   - Add Depth Anything V2 onnx models + benchmarks
-  - Merge [PR](https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt/pull/9) for engine caching in memory
+  - Merge [PR](https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt/pull/9) for engine caching in memory by [BuffMcBigHuge](https://github.com/BuffMcBigHuge)
 
 - 26/04/2024
 
