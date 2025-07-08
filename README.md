@@ -75,7 +75,7 @@ There are two ways to build TensorRT engines:
 
 ### Method 1: Using the EngineBuilder Node
 1. Insert node by `Right Click -> tensorrt -> Depth Anything Engine Builder`
-2. Select the model version (v1 or v2) and size (small, base, or large)
+2. Select the model version (v1 or v2 or DAD) and size (small, base, or large)
 3. Optionally customize the engine name, FP16 settings, and onnx path
 4. Run the workflow to build the engine
 
@@ -85,6 +85,7 @@ The engine will be automatically downloaded and built in the specified location.
 1. Download one of the available onnx models:
    - [Depth Anything v1](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
    - [Depth Anything v2](https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/tree/main)
+   - [Distill Any Depth](https://huggingface.co/yuvraj108c/distill-any-depth-onnx/tree/main)
 2. Run the export script, e.g
  ```bash
 python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./depth_anything_vitl14-fp16.engine
@@ -102,6 +103,11 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 - Windows (Not tested)
 
 ## 📝 Changelog
+
+- 08/07/2025
+
+  - Add support for [Distill-Any-Depth](https://github.com/Westlake-AGI-Lab/Distill-Any-Depth)
+  - Add benchmark for Distill-Any-Depth models
 
 - 20/05/2025
 
@@ -136,3 +142,4 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 - [NVIDIA/Stable-Diffusion-WebUI-TensorRT](https://github.com/NVIDIA/Stable-Diffusion-WebUI-TensorRT)
 - [spacewalk01/depth-anything-tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt)
 - [martenwikman/depth-anything-tensorrt-docker](https://github.com/martenwikman/depth-anything-tensorrt-docker)
+- [Westlake-AGI-Lab/Distill-Any-Depth](https://github.com/Westlake-AGI-Lab/Distill-Any-Depth)
