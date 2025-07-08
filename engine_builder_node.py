@@ -38,6 +38,26 @@ DEPTH_ANYTHING_MODELS = {
         "url": "https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/resolve/main/depth_anything_v2_vitl.onnx",
         "filename": "depth_anything_v2_vitl.onnx",
         "engine_name": "v2_depth_anything_v2_vitl-fp16.engine"
+    },
+    "DAD_small": {
+        "url": "https://huggingface.co/yuvraj108c/distill-any-depth-onnx/resolve/main/Distill-Any-Depth-Multi-Teacher-Small.onnx",
+        "filename": "Distill-Any-Depth-Multi-Teacher-Small.onnx",
+        "engine_name": "Distill-Any-Depth-Multi-Teacher-Small-fp16.engine"
+    },
+    "DAD_base": {
+        "url": "https://huggingface.co/yuvraj108c/distill-any-depth-onnx/resolve/main/Distill-Any-Depth-Multi-Teacher-Base.onnx",
+        "filename": "Distill-Any-Depth-Multi-Teacher-Base.onnx",
+        "engine_name": "Distill-Any-Depth-Multi-Teacher-Base-fp16.engine"
+    },
+    "DAD_large": {
+        "url": "https://huggingface.co/yuvraj108c/distill-any-depth-onnx/resolve/main/Distill-Any-Depth-Multi-Teacher-Large.onnx",
+        "filename": "Distill-Any-Depth-Multi-Teacher-Large.onnx",
+        "engine_name": "Distill-Any-Depth-Multi-Teacher-Large-fp16.engine"
+    },
+    "DAD_large_2w_iter": {
+        "url": "https://huggingface.co/yuvraj108c/distill-any-depth-onnx/resolve/main/Distill-Any-Depth-Dav2-Teacher-Large-2w-iter.onnx",
+        "filename": "Distill-Any-Depth-Dav2-Teacher-Large-2w-iter.onnx",
+        "engine_name": "Distill-Any-Depth-Dav2-Teacher-Large-2w-iter-fp16.engine"
     }
 }
 
