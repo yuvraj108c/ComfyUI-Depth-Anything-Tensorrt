@@ -59,6 +59,17 @@ _Note: The following results were benchmarked on FP16 engines inside ComfyUI_
 |  H100  | Depth-Anything-B |      518x518      |        1280x720        | 180 |
 |  H100  | Depth-Anything-L |      518x518      |        1280x720        | 109 |
 
+## ⏱️ Performance (Distill Any Depth)
+
+_Note: The following results were benchmarked on FP16 engines inside ComfyUI_
+
+| Device |      Model       | Model Input (WxH) | Image Resolution (WxH) | FPS |
+| :----: | :--------------: | :---------------: | :--------------------: | :-: |
+|  H100  | Distill-Any-Depth-Multi-Teacher-Small |      518x518      |        1280x720        | 76 |
+|  H100  | Distill-Any-Depth-Multi-Teacher-Base |      518x518      |        1280x720        | 68 |
+|  H100  | Distill-Any-Depth-Multi-Teacher-Large |      518x518      |        1280x720        | 59 |
+|  H100  | Distill-Any-Depth-Dav2-Teacher-Large-2w-iter |      518x518      |        1280x720        | 57 |
+
 ## 🚀 Installation
 
 Navigate to the ComfyUI `/custom_nodes` directory
