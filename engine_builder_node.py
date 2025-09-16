@@ -27,17 +27,27 @@ DEPTH_ANYTHING_MODELS = {
     "v2_small": {
         "url": "https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/resolve/main/depth_anything_v2_vits.onnx",
         "filename": "depth_anything_v2_vits.onnx",
-        "engine_name": "v2_depth_anything_v2_vits-fp16.engine"
+        "engine_name": "v2_depth_anything_vits-fp16.engine"
     },
     "v2_base": {
         "url": "https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/resolve/main/depth_anything_v2_vitb.onnx",
         "filename": "depth_anything_v2_vitb.onnx",
-        "engine_name": "v2_depth_anything_v2_vitb-fp16.engine"
+        "engine_name": "v2_depth_anything_vitb-fp16.engine"
     },
     "v2_large": {
         "url": "https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/resolve/main/depth_anything_v2_vitl.onnx",
         "filename": "depth_anything_v2_vitl.onnx",
-        "engine_name": "v2_depth_anything_v2_vitl-fp16.engine"
+        "engine_name": "v2_depth_anything_vitl-fp16.engine"
+    },
+    "v2_metric_hypersim_large": {
+        "url": "https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/resolve/main/depth_anything_v2_metric_hypersim_vitl.onnx",
+        "filename": "depth_anything_v2_metric_hypersim_vitl.onnx",
+        "engine_name": "v2_depth_anything_metric_hypersim_vitl-fp16.engine"
+    },
+    "v2_metric_vkitti_large": {
+        "url": "https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/resolve/main/depth_anything_v2_metric_vkitti_vitl.onnx",
+        "filename": "depth_anything_v2_metric_vkitti_vitl.onnx",
+        "engine_name": "v2_depth_anything_metric_vkitti_vitl-fp16.engine"
     },
     "DAD_small": {
         "url": "https://huggingface.co/yuvraj108c/distill-any-depth-onnx/resolve/main/Distill-Any-Depth-Multi-Teacher-Small.onnx",
