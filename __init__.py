@@ -62,7 +62,11 @@ class DepthAnythingTensorrt:
             pbar.update(1)
         
         depth_frames_np = np.array(depth_frames).astype(np.float32) / 255.0
-        return (torch.from_numpy(depth_frames_np),)
+        if "metric" in engine:
+            result = 1 - torch.from_numpy(depth_frames_np)
+        else:
+            result = torch.from_numpy(depth_frames_np)
+        return (result,)
 
 NODE_CLASS_MAPPINGS = { 
     "DepthAnythingTensorrt" : DepthAnythingTensorrt,
