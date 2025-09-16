@@ -117,7 +117,7 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 
 - 16/09/2025
 
-  - Add support for v2 metric models (depth_anything_v2_metric_hypersim_vitl, depth_anything_v2_metric_vkitti_vitl)
+  - Add support for v2 metric models (depth_anything_v2_metric_hypersim_vitl, depth_anything_v2_metric_vkitti_vitl) https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt/pull/21
     
 - 08/07/2025
 
