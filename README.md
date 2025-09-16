@@ -115,6 +115,10 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 
 ## 📝 Changelog
 
+- 16/09/2025
+
+  - Add support for v2 metric models (depth_anything_v2_metric_hypersim_vitl, depth_anything_v2_metric_vkitti_vitl)
+    
 - 08/07/2025
 
   - Add support for [Distill-Any-Depth](https://github.com/Westlake-AGI-Lab/Distill-Any-Depth)
@@ -154,3 +158,4 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 - [spacewalk01/depth-anything-tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt)
 - [martenwikman/depth-anything-tensorrt-docker](https://github.com/martenwikman/depth-anything-tensorrt-docker)
 - [Westlake-AGI-Lab/Distill-Any-Depth](https://github.com/Westlake-AGI-Lab/Distill-Any-Depth)
+- [kijai/ComfyUI-DepthAnythingV2](https://github.com/kijai/ComfyUI-DepthAnythingV2)
