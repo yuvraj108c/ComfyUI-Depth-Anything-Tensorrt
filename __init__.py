@@ -6,6 +6,7 @@ import torch
 from comfy.utils import ProgressBar
 import cv2
 from .utilities import Engine
+
 from .engine_builder_node import DepthAnythingEngineBuilder
 
 ENGINE_DIR = os.path.join(folder_paths.models_dir,"tensorrt", "depth-anything")
@@ -15,7 +16,7 @@ class DepthAnythingTensorrt:
     def __init__(self):
         self.engine = None
         self.engine_label = None
-        
+
     @classmethod
     def INPUT_TYPES(s):
         return {
@@ -28,6 +29,7 @@ class DepthAnythingTensorrt:
     RETURN_TYPES = ("IMAGE",)
     FUNCTION = "main"
     CATEGORY = "tensorrt"
+    OUTPUT_NODE = True
 
     def main(self, images, engine):
 
@@ -50,14 +52,13 @@ class DepthAnythingTensorrt:
         for img in images_list:
             result = self.engine.infer({"input": img},cudaStream)
             depth = result['output']
+            
+            if "DA3" in engine:
+                depth = self.postprocess_da3(depth)
+            else:
+                depth = self.postprocess_da2(depth)
 
-            # Process the depth output
-            depth = np.reshape(depth.cpu().numpy(), (518,518))
-            depth = (depth - depth.min()) / (depth.max() - depth.min()) * 255.0
-            depth = depth.astype(np.uint8)
             depth = cv2.resize(depth, (images.shape[3], images.shape[2]))
-            depth = cv2.cvtColor(depth, cv2.COLOR_RGB2BGR)
-
             depth_frames.append(depth)
             pbar.update(1)
         
@@ -66,7 +67,38 @@ class DepthAnythingTensorrt:
             result = 1 - torch.from_numpy(depth_frames_np)
         else:
             result = torch.from_numpy(depth_frames_np)
+
         return (result,)
+
+    def postprocess_da3(self, depth_t):
+        depth = depth_t.squeeze().cpu().numpy()
+        
+        valid_mask = depth > 0
+        depth[valid_mask] = 1 / depth[valid_mask]
+        
+        # Percentile-based normalization
+        if valid_mask.sum() > 10:
+            depth_min = np.percentile(depth[valid_mask], 2)
+            depth_max = np.percentile(depth[valid_mask], 98)
+        else:
+            depth_min = depth.min()
+            depth_max = depth.max()
+        
+        if depth_min == depth_max:
+            depth_min = depth_min - 1e-6
+            depth_max = depth_max + 1e-6
+        
+        # Normalize to 0-1 range
+        depth = ((depth - depth_min) / (depth_max - depth_min)).clip(0, 1)
+        depth = (depth * 255).astype(np.uint8)
+        
+        return depth
+
+    def postprocess_da2(self, depth_t):
+        depth = np.reshape(depth_t.cpu().numpy(), (518,518))
+        depth = (depth - depth.min()) / (depth.max() - depth.min()) * 255.0
+        depth = depth.astype(np.uint8)
+        return depth
 
 NODE_CLASS_MAPPINGS = { 
     "DepthAnythingTensorrt" : DepthAnythingTensorrt,

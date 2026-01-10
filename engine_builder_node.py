@@ -68,6 +68,11 @@ DEPTH_ANYTHING_MODELS = {
         "url": "https://huggingface.co/yuvraj108c/distill-any-depth-onnx/resolve/main/Distill-Any-Depth-Dav2-Teacher-Large-2w-iter.onnx",
         "filename": "Distill-Any-Depth-Dav2-Teacher-Large-2w-iter.onnx",
         "engine_name": "Distill-Any-Depth-Dav2-Teacher-Large-2w-iter-fp16.engine"
+    },
+    "DA3Mono-Large": {
+        "url": "https://huggingface.co/yuvraj108c/Depth-Anything-3-Onnx/resolve/main/DA3Mono-Large.onnx",
+        "filename": "DA3Mono-Large.onnx",
+        "engine_name": "DA3Mono-Large-fp16.engine"
     }
 }
 
