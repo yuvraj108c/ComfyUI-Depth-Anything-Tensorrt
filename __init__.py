@@ -72,25 +72,31 @@ class DepthAnythingTensorrt:
 
     def postprocess_da3(self, depth_t):
         depth = depth_t.squeeze().cpu().numpy()
+        depth = depth.copy()
         
         valid_mask = depth > 0
         depth[valid_mask] = 1 / depth[valid_mask]
         
-        # Percentile-based normalization
-        if valid_mask.sum() > 10:
-            depth_min = np.percentile(depth[valid_mask], 2)
-            depth_max = np.percentile(depth[valid_mask], 98)
-        else:
-            depth_min = depth.min()
-            depth_max = depth.max()
+        percentile = 2
+        depth_min = None
+        depth_max = None
         
+        if depth_min is None:
+            if valid_mask.sum() <= 10:
+                depth_min = 0
+            else:
+                depth_min = np.percentile(depth[valid_mask], percentile)
+        if depth_max is None:
+            if valid_mask.sum() <= 10:
+                depth_max = 0
+            else:
+                depth_max = np.percentile(depth[valid_mask], 100 - percentile)
         if depth_min == depth_max:
             depth_min = depth_min - 1e-6
             depth_max = depth_max + 1e-6
         
-        # Normalize to 0-1 range
         depth = ((depth - depth_min) / (depth_max - depth_min)).clip(0, 1)
-        depth = (depth * 255).astype(np.uint8)
+        depth = (depth * 255.0).astype(np.uint8)
         
         return depth
 
@@ -99,6 +105,7 @@ class DepthAnythingTensorrt:
         depth = (depth - depth.min()) / (depth.max() - depth.min()) * 255.0
         depth = depth.astype(np.uint8)
         return depth
+        
 
 NODE_CLASS_MAPPINGS = { 
     "DepthAnythingTensorrt" : DepthAnythingTensorrt,

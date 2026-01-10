@@ -66,6 +66,7 @@ _Note: The following results were benchmarked on FP16 engines inside ComfyUI_
 | Device |      Model       | Model Input (WxH) | Image Resolution (WxH) | FPS |
 | :----: | :--------------: | :---------------: | :--------------------: | :-: |
 |  RTX5090  | DA3Mono-Large |      518x518      |        1280x720        | 85 |
+|  RTX5090  | DA3Metric-Large |      518x518      |        1280x720        | 85 |
 
 ## ⏱️ Performance (Distill Any Depth)
 
@@ -121,7 +122,7 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 
 - 10/01/2026
 
-  - Add partial support for [Depth Anything V3](https://github.com/ByteDance-Seed/Depth-Anything-3) (DA3MONO-LARGE)
+  - Add partial support for [Depth Anything V3](https://github.com/ByteDance-Seed/Depth-Anything-3) (DA3Mono-Large, DA3Metric-Large)
     
 - 16/09/2025
 

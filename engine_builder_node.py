@@ -73,6 +73,11 @@ DEPTH_ANYTHING_MODELS = {
         "url": "https://huggingface.co/yuvraj108c/Depth-Anything-3-Onnx/resolve/main/DA3Mono-Large.onnx",
         "filename": "DA3Mono-Large.onnx",
         "engine_name": "DA3Mono-Large-fp16.engine"
+    },
+    "DA3Metric-Large": {
+        "url": "https://huggingface.co/yuvraj108c/Depth-Anything-3-Onnx/resolve/main/DA3Metric-Large.onnx",
+        "filename": "DA3Metric-Large.onnx",
+        "engine_name": "DA3Metric-Large-fp16.engine"
     }
 }
 
