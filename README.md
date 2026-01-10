@@ -2,20 +2,20 @@
 
 # ComfyUI Depth Anything TensorRT
 
-[![python](https://img.shields.io/badge/python-3.10.12-green)](https://www.python.org/downloads/release/python-31012/)
-[![cuda](https://img.shields.io/badge/cuda-12.3-green)](https://developer.nvidia.com/cuda-downloads)
-[![trt](https://img.shields.io/badge/TRT-10.0-green)](https://developer.nvidia.com/tensorrt)
+[![python](https://img.shields.io/badge/python-3.12.3-green)](https://www.python.org/downloads/release/python-3123//)
+[![cuda](https://img.shields.io/badge/cuda-13.1-green)](https://developer.nvidia.com/cuda-downloads)
+[![trt](https://img.shields.io/badge/TRT-10.14.1.48-green)](https://developer.nvidia.com/tensorrt)
 [![mit](https://img.shields.io/badge/license-MIT-blue)](https://github.com/spacewalk01/depth-anything-tensorrt/blob/main/LICENSE)
 
 </div>
 
 This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (up to 14x faster than [comfyui_controlnet_aux](https://github.com/Fannovel16/comfyui_controlnet_aux))
 
+**Last tested**: 10 January 2026 (ComfyUI v0.8.2@a60b7b8 | Torch 2.9.1 | Python 3.12.3 | RTX5090 | CUDA 13.1 | Ubuntu 24.04)
+
 <p align="center">
   <img src="assets/demo.gif" />
 </p>
-
-
 
 ## ⭐ Support
 If you like my projects and wish to see updates and new features, please consider supporting me. It helps a lot! 
@@ -59,6 +59,15 @@ _Note: The following results were benchmarked on FP16 engines inside ComfyUI_
 |  H100  | Depth-Anything-B |      518x518      |        1280x720        | 180 |
 |  H100  | Depth-Anything-L |      518x518      |        1280x720        | 109 |
 
+## ⏱️ Performance (Depth Anything V3)
+
+_Note: The following results were benchmarked on FP16 engines inside ComfyUI_
+
+| Device |      Model       | Model Input (WxH) | Image Resolution (WxH) | FPS |
+| :----: | :--------------: | :---------------: | :--------------------: | :-: |
+|  RTX5090  | DA3Mono-Large |      518x518      |        1280x720        | 85 |
+|  RTX5090  | DA3Metric-Large |      518x518      |        1280x720        | 85 |
+
 ## ⏱️ Performance (Distill Any Depth)
 
 _Note: The following results were benchmarked on FP16 engines inside ComfyUI_
@@ -96,6 +105,7 @@ The engine will be automatically downloaded and built in the specified location.
 1. Download one of the available onnx models:
    - [Depth Anything v1](https://huggingface.co/yuvraj108c/Depth-Anything-Onnx/tree/main)
    - [Depth Anything v2](https://huggingface.co/yuvraj108c/Depth-Anything-2-Onnx/tree/main)
+   - [Depth Anything v3](https://huggingface.co/yuvraj108c/Depth-Anything-3-Onnx/tree/main)
    - [Distill Any Depth](https://huggingface.co/yuvraj108c/distill-any-depth-onnx/tree/main)
 2. Run the export script, e.g
  ```bash
@@ -108,13 +118,12 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 - Insert node by `Right Click -> tensorrt -> Depth Anything Tensorrt`
 - Choose the appropriate engine from the dropdown
 
-## 🤖 Environment tested
-
-- Ubuntu 22.04 LTS, Cuda 12.3, Tensorrt 10.0.1, Python 3.10, RTX 4090 GPU
-- Windows (Not tested)
-
 ## 📝 Changelog
 
+- 10/01/2026
+
+  - Add partial support for [Depth Anything V3](https://github.com/ByteDance-Seed/Depth-Anything-3) (DA3Mono-Large, DA3Metric-Large)
+    
 - 16/09/2025
 
   - Add support for v2 metric models (depth_anything_v2_metric_hypersim_vitl, depth_anything_v2_metric_vkitti_vitl) https://github.com/yuvraj108c/ComfyUI-Depth-Anything-Tensorrt/pull/21
