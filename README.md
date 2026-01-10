@@ -65,7 +65,7 @@ _Note: The following results were benchmarked on FP16 engines inside ComfyUI_
 
 | Device |      Model       | Model Input (WxH) | Image Resolution (WxH) | FPS |
 | :----: | :--------------: | :---------------: | :--------------------: | :-: |
-|  RTX5090  | DA3MONO-LARGE |      518x518      |        1280x720        | 85 |
+|  RTX5090  | DA3Mono-Large |      518x518      |        1280x720        | 85 |
 
 ## ⏱️ Performance (Distill Any Depth)
 
