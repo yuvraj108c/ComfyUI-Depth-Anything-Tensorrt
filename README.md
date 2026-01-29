@@ -120,6 +120,12 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 
 ## 📝 Changelog
 
+- 29/01/2026
+
+  - Major refactoring (file structure, logging)
+  - Moved model definitions to `config/models.json`
+  - Use huggingface_hub to download onnx models 
+
 - 10/01/2026
 
   - Add partial support for [Depth Anything V3](https://github.com/ByteDance-Seed/Depth-Anything-3) (DA3Mono-Large, DA3Metric-Large)
