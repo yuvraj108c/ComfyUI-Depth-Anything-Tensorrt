@@ -7,9 +7,9 @@ import argparse
 sys.path.append(os.path.dirname(__file__))
 
 try:
-    from .utilities import Engine
+    from ..trt_utilities import Engine
 except ImportError:
-    from utilities import Engine
+    from trt_utilities import Engine
 
 def export_trt(trt_path: str, onnx_path: str, use_fp16: bool):
     if not os.path.isfile(onnx_path):
