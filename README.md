@@ -124,8 +124,7 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 For more control over depth visualization, use the two-node pipeline:
 
 1. **Depth Anything Tensorrt Advanced** (`Right Click -> tensorrt -> Depth Anything Tensorrt Advanced`)
-   - Returns raw linear depth values (DEPTHS type) instead of a processed image
-   - Automatically handles DA3 inverse depth conversion
+   - Returns raw linear depth values instead of a processed image
 
 2. **Depth Map Display** (`Right Click -> tensorrt -> Depth Map Display`)
    - Connect to the Advanced node's `depths` output
