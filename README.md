@@ -115,16 +115,44 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 
 ## ☀️ Usage
 
+### Depth Anything Tensorrt (Basic)
 - Insert node by `Right Click -> tensorrt -> Depth Anything Tensorrt`
 - Choose the appropriate engine from the dropdown
+- Returns a grayscale depth image (IMAGE type) ready for direct use in workflows
+
+### Depth Anything Advanced + Depth Map Display
+For more control over depth visualization, use the two-node pipeline:
+
+1. **Depth Anything Tensorrt Advanced** (`Right Click -> tensorrt -> Depth Anything Tensorrt Advanced`)
+   - Returns raw linear depth values (DEPTHS type) instead of a processed image
+   - Automatically handles DA3 inverse depth conversion
+
+2. **Depth Map Display** (`Right Click -> tensorrt -> Depth Map Display`)
+   - Connect to the Advanced node's `depths` output
+   - Visualizes depth using colormaps with the following adjustments:
+
+   | Parameter | Default | Range | Description |
+   |-----------|---------|-------|-------------|
+   | `colormap` | — | grayscale, inferno, viridis, plasma, magma, turbo, jet, hot, cool, spring, summer, autumn, winter, bone, rainbow, ocean, hsv, parula, pink | Color scheme for depth visualization |
+   | `invert` | false | true/false | Flip depth so near becomes far and vice versa |
+   | `contrast` | 1.0 | 0.1 – 5.0 | Spread of depth values around the midpoint |
+   | `brightness` | 0.0 | -1.0 – 1.0 | Shifts all depth values up or down |
+   | `gamma` | 1.0 | 0.1 – 5.0 | Non-linear tone curve. Below 1.0 reveals detail in distant regions, above 1.0 in near regions |
+   | `percentile_clip` | 2.0 | 0.0 – 20.0 | Clips outlier depth values at this percentile from both ends before normalizing. Prevents extreme values from compressing the useful range |
 
 ## 📝 Changelog
+
+- 31/01/2026
+
+  - Added multiple depth colormaps 
+  - Added Depth Map Display adjustments: contrast, brightness, gamma, percentile clipping
+  - Added tooltips, descriptions, and output tooltips to all nodes
 
 - 29/01/2026
 
   - Major refactoring (file structure, logging)
   - Moved model definitions to `config/models.json`
-  - Use huggingface_hub to download onnx models 
+  - Use huggingface_hub to download onnx models
 
 - 10/01/2026
 

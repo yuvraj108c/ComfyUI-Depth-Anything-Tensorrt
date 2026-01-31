@@ -106,9 +106,11 @@ class DepthAnythingEngineBuilder:
         }
     RETURN_TYPES = ("STRING",)
     RETURN_NAMES = ("message",)
+    OUTPUT_TOOLTIPS = ("Status message indicating whether the engine was built successfully, already exists, or encountered an error.",)
     FUNCTION = "build_engine"
     CATEGORY = "tensorrt"
     OUTPUT_NODE = True
+    DESCRIPTION = "Downloads a Depth Anything ONNX model and converts it to a TensorRT engine optimized for your GPU. The engine only needs to be built once and is reused for all subsequent inference."
     
     def build_engine(self, model_version, custom_engine_name, use_fp16, custom_onnx_path=""):
         # Determine ONNX path and engine name
