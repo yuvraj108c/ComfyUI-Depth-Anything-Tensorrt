@@ -127,6 +127,7 @@ class DepthAnythingTensorrt(_DepthAnythingBase):
             result = 1 - torch.from_numpy(depth_frames_np)
         else:
             result = torch.from_numpy(depth_frames_np)
+        result = result.unsqueeze(-1).repeat(1, 1, 1, 3)
         return (result,)
 
 class DepthAnythingTensorrtAdvanced(_DepthAnythingBase):
