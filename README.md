@@ -11,7 +11,7 @@
 
 This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (up to 14x faster than [comfyui_controlnet_aux](https://github.com/Fannovel16/comfyui_controlnet_aux))
 
-**Last tested**: 10 January 2026 (ComfyUI v0.8.2@a60b7b8 | Torch 2.9.1 | Python 3.12.3 | RTX5090 | CUDA 13.1 | Ubuntu 24.04)
+**Last tested**: 02 June 2026 (ComfyUI v0.23.0 | Torch 2.12.0 | Python 3.12.3 | H100 | CUDA 13.0 | Ubuntu 24.04)
 
 <p align="center">
   <img src="assets/demo.gif" />
@@ -32,7 +32,7 @@ If you like my projects and wish to see updates and new features, please conside
 [![ComfyUI-Video-Depth-Anything](https://img.shields.io/badge/ComfyUI--Video--Depth--Anything-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-Video-Depth-Anything)
 [![ComfyUI-PiperTTS](https://img.shields.io/badge/ComfyUI--PiperTTS-gray?style=flat-square)](https://github.com/yuvraj108c/ComfyUI-PiperTTS)
 
-Special thanks to [livepeer.org](https://www.livepeer.org/) for supporting the project! 
+Special thanks to [livepeer.org](https://www.livepeer.org/) for having supported the project! 
 
 [![buy-me-coffees](https://i.imgur.com/3MDbAtw.png)](https://www.buymeacoffee.com/yuvraj108cZ)
 [![paypal-donation](https://i.imgur.com/w5jjubk.png)](https://paypal.me/yuvraj108c)
@@ -140,6 +140,10 @@ For more control over depth visualization, use the two-node pipeline:
    | `percentile_clip` | 2.0 | 0.0 – 20.0 | Clips outlier depth values at this percentile from both ends before normalizing. Prevents extreme values from compressing the useful range |
 
 ## 📝 Changelog
+
+- 02/06/2026
+
+  - Added example workflows 
 
 - 31/01/2026
 

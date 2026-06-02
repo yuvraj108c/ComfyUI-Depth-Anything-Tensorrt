@@ -1,0 +1,58 @@
+{
+  "id": "09be211b-6f1b-41e8-a723-9019cd7e9267",
+  "revision": 0,
+  "last_node_id": 1,
+  "last_link_id": 0,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "DepthAnythingEngineBuilder",
+      "pos": [
+        842.7302627431021,
+        484.02624248133765
+      ],
+      "size": [
+        383.230078125,
+        130
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "message",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingEngineBuilder"
+      },
+      "widgets_values": [
+        "v2_large",
+        "",
+        true,
+        ""
+      ]
+    }
+  ],
+  "links": [],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0519609766537659,
+      "offset": [
+        -249.46695963541663,
+        -242.4498799641927
+      ]
+    },
+    "frontendVersion": "1.44.19",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
