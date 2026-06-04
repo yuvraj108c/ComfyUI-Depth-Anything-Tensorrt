@@ -11,7 +11,7 @@
 
 This repo provides a ComfyUI Custom Node implementation of the [Depth-Anything-Tensorrt](https://github.com/spacewalk01/depth-anything-tensorrt) in Python for ultra fast depth map generation (up to 14x faster than [comfyui_controlnet_aux](https://github.com/Fannovel16/comfyui_controlnet_aux))
 
-**Last tested**: 02 June 2026 (ComfyUI v0.23.0 | Torch 2.12.0 | Python 3.12.3 | H100 | CUDA 13.0 | Ubuntu 24.04)
+**Last tested**: 03 June 2026 (ComfyUI v0.23.0 | Torch 2.12.0 | Python 3.12.3 | H100 | CUDA 13.0 | Ubuntu 24.04)
 
 <p align="center">
   <img src="assets/demo.gif" />
@@ -120,27 +120,54 @@ python export_trt.py --onnx-path ./depth_anything_vitl14-fp16.onnx --trt-path ./
 - Choose the appropriate engine from the dropdown
 - Returns a grayscale depth image (IMAGE type) ready for direct use in workflows
 
-### Depth Anything Advanced + Depth Map Display
-For more control over depth visualization, use the two-node pipeline:
+### Depth Anything Advanced + Temporal Stabilizer + Depth Map Display
+
+For more control over depth visualization, use the advanced pipeline:
+
+```text
+Depth Anything Tensorrt Advanced
+        │ depths
+        ▼
+Depth Temporal Stabilizer Fast GPU    (optional, recommended for video)
+        │ depths
+        ▼
+Depth Map Display
+```
 
 1. **Depth Anything Tensorrt Advanced** (`Right Click -> tensorrt -> Depth Anything Tensorrt Advanced`)
-   - Returns raw linear depth values instead of a processed image
 
-2. **Depth Map Display** (`Right Click -> tensorrt -> Depth Map Display`)
-   - Connect to the Advanced node's `depths` output
-   - Visualizes depth using colormaps with the following adjustments:
+   * Returns raw linear depth values instead of a processed image.
 
-   | Parameter | Default | Range | Description |
-   |-----------|---------|-------|-------------|
-   | `colormap` | — | grayscale, inferno, viridis, plasma, magma, turbo, jet, hot, cool, spring, summer, autumn, winter, bone, rainbow, ocean, hsv, parula, pink | Color scheme for depth visualization |
-   | `invert` | false | true/false | Flip depth so near becomes far and vice versa |
-   | `contrast` | 1.0 | 0.1 – 5.0 | Spread of depth values around the midpoint |
-   | `brightness` | 0.0 | -1.0 – 1.0 | Shifts all depth values up or down |
-   | `gamma` | 1.0 | 0.1 – 5.0 | Non-linear tone curve. Below 1.0 reveals detail in distant regions, above 1.0 in near regions |
-   | `percentile_clip` | 2.0 | 0.0 – 20.0 | Clips outlier depth values at this percentile from both ends before normalizing. Prevents extreme values from compressing the useful range |
+2. **Depth Temporal Stabilizer Fast GPU** (`Right Click -> tensorrt -> Depth Temporal Stabilizer Fast GPU`)
+
+   * Reduces mild frame-to-frame flickering and relative depth-range pulsing using fast CUDA temporal smoothing.
+   * Very high smoothing values can cause trailing on fast-moving objects or strong camera motion.
+
+   | Parameter            | Default | Range        | Description                                                                                                                                       |
+   | -------------------- | ------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+   | `temporal_strength`  | 0.45    | 0.0 – 0.95   | Controls how strongly stable pixels inherit depth from the previous stabilized frame. Higher values reduce more flicker but may introduce trails. |
+   | `depth_consistency`  | 0.05    | 0.001 – 0.50 | Controls which depth changes are considered stable enough to smooth. Lower values better preserve motion and object edges.                        |
+   | `align_depth_range`  | true    | true/false   | Corrects frame-to-frame global relative-depth scale and offset pulsing before temporal smoothing.                                                 |
+   | `alignment_strength` | 0.70    | 0.0 – 1.0    | Controls how strongly global depth-range alignment is applied. Increasing this usually has less ghosting risk than increasing temporal smoothing. |
+
+3. **Depth Map Display** (`Right Click -> tensorrt -> Depth Map Display`)
+
+   * Visualizes raw depth values using colormaps with the following adjustments:
+
+   | Parameter         | Default | Range                                                                                                                                      | Description                                                                                                                                |
+   | ----------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
+   | `colormap`        | —       | grayscale, inferno, viridis, plasma, magma, turbo, jet, hot, cool, spring, summer, autumn, winter, bone, rainbow, ocean, hsv, parula, pink | Color scheme for depth visualization                                                                                                       |
+   | `invert`          | false   | true/false                                                                                                                                 | Flip depth so near becomes far and vice versa                                                                                              |
+   | `contrast`        | 1.0     | 0.1 – 5.0                                                                                                                                  | Spread of depth values around the midpoint                                                                                                 |
+   | `brightness`      | 0.0     | -1.0 – 1.0                                                                                                                                 | Shifts all depth values up or down                                                                                                         |
+   | `gamma`           | 1.0     | 0.1 – 5.0                                                                                                                                  | Non-linear tone curve. Below 1.0 reveals detail in distant regions, above 1.0 in near regions                                              |
+   | `percentile_clip` | 2.0     | 0.0 – 20.0                                                                                                                                 | Clips outlier depth values at this percentile from both ends before normalizing. Prevents extreme values from compressing the useful range |
 
 ## 📝 Changelog
+- 03/06/2026
 
+  - Added fast GPU-based temporal depth stabilizer node to reduce flickering in video depth maps
+     
 - 02/06/2026
 
   - Added example workflows 
