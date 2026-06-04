@@ -1,0 +1,622 @@
+{
+  "id": "33df7f2c-d529-4505-84c9-d7e4119270bb",
+  "revision": 0,
+  "last_node_id": 22,
+  "last_link_id": 26,
+  "nodes": [
+    {
+      "id": 10,
+      "type": "LoadVideo",
+      "pos": [
+        487.6123046875,
+        396.31640625
+      ],
+      "size": [
+        282.798828125,
+        576.7534722222222
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            8
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo"
+      },
+      "widgets_values": [
+        "example.mp4",
+        "image"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "CreateVideo",
+      "pos": [
+        1297.426087801107,
+        861.8377350007064
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 13
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            10
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        30
+      ]
+    },
+    {
+      "id": 14,
+      "type": "SaveVideo",
+      "pos": [
+        1602.287656729822,
+        372.11061250567946
+      ],
+      "size": [
+        270,
+        578
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 10
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "DepthAnythingMapDisplay",
+      "pos": [
+        1242.086036766045,
+        612.707302759867
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "depths",
+          "type": "DEPTHS",
+          "link": 17
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            18
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingMapDisplay"
+      },
+      "widgets_values": [
+        "grayscale",
+        false,
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 11,
+      "type": "GetVideoComponents",
+      "pos": [
+        850.5552651226424,
+        418.3780095669761
+      ],
+      "size": [
+        193.530859375,
+        66
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 8
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            15
+          ]
+        },
+        {
+          "name": "audio",
+          "type": "AUDIO",
+          "links": [
+            13,
+            22
+          ]
+        },
+        {
+          "name": "fps",
+          "type": "FLOAT",
+          "links": [
+            12
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetVideoComponents"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 20,
+      "type": "CreateVideo",
+      "pos": [
+        2095.9024091036117,
+        675.1260618314916
+      ],
+      "size": [
+        270,
+        78
+      ],
+      "flags": {
+        "collapsed": true
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 19
+        },
+        {
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 22
+        }
+      ],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            20
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CreateVideo"
+      },
+      "widgets_values": [
+        30
+      ]
+    },
+    {
+      "id": 21,
+      "type": "DepthAnythingMapDisplay",
+      "pos": [
+        2032.994262080939,
+        398.2070418529433
+      ],
+      "size": [
+        270,
+        178
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "depths",
+          "type": "DEPTHS",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            19
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingMapDisplay"
+      },
+      "widgets_values": [
+        "grayscale",
+        false,
+        1,
+        0,
+        1,
+        2
+      ]
+    },
+    {
+      "id": 19,
+      "type": "SaveVideo",
+      "pos": [
+        2374.839648112531,
+        371.9157857585808
+      ],
+      "size": [
+        270,
+        578
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "video",
+          "type": "VIDEO",
+          "link": 20
+        }
+      ],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "video/ComfyUI",
+        "auto",
+        "auto"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "DepthTemporalStabilizerGPU",
+      "pos": [
+        1195.2716726267738,
+        410.935316706695
+      ],
+      "size": [
+        326.2046875,
+        130
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "depths",
+          "type": "DEPTHS",
+          "link": 25
+        }
+      ],
+      "outputs": [
+        {
+          "name": "depths",
+          "type": "DEPTHS",
+          "links": [
+            17
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthTemporalStabilizerGPU"
+      },
+      "widgets_values": [
+        0.45,
+        0.05,
+        true,
+        0.7
+      ]
+    },
+    {
+      "id": 16,
+      "type": "DepthAnythingTensorrtAdvanced",
+      "pos": [
+        786.5706541299645,
+        500.975080877746
+      ],
+      "size": [
+        354.9361328125,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 15
+        }
+      ],
+      "outputs": [
+        {
+          "name": "depths",
+          "type": "DEPTHS",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DepthAnythingTensorrtAdvanced"
+      },
+      "widgets_values": [
+        "v2_depth_anything_vitl-fp16.engine"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "Reroute",
+      "pos": [
+        1131.0657123030762,
+        131.2760794482581
+      ],
+      "size": [
+        75,
+        26
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "",
+          "type": "*",
+          "link": 23
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "DEPTHS",
+          "links": [
+            25,
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "showOutputText": false,
+        "horizontal": false
+      }
+    }
+  ],
+  "links": [
+    [
+      8,
+      10,
+      0,
+      11,
+      0,
+      "VIDEO"
+    ],
+    [
+      10,
+      15,
+      0,
+      14,
+      0,
+      "VIDEO"
+    ],
+    [
+      12,
+      11,
+      2,
+      15,
+      2,
+      "FLOAT"
+    ],
+    [
+      13,
+      11,
+      1,
+      15,
+      1,
+      "AUDIO"
+    ],
+    [
+      15,
+      11,
+      0,
+      16,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      17,
+      0,
+      18,
+      0,
+      "DEPTHS"
+    ],
+    [
+      18,
+      18,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      21,
+      0,
+      20,
+      0,
+      "IMAGE"
+    ],
+    [
+      20,
+      20,
+      0,
+      19,
+      0,
+      "VIDEO"
+    ],
+    [
+      22,
+      11,
+      1,
+      20,
+      1,
+      "AUDIO"
+    ],
+    [
+      23,
+      16,
+      0,
+      22,
+      0,
+      "DEPTHS"
+    ],
+    [
+      25,
+      22,
+      0,
+      17,
+      0,
+      "DEPTHS"
+    ],
+    [
+      26,
+      22,
+      0,
+      21,
+      0,
+      "DEPTHS"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "With Stabilizer",
+      "bounding": [
+        1182.9417108021316,
+        214.14232158990615,
+        770.3086099319469,
+        797.9669106519895
+      ],
+      "color": "#3f789e",
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "Without Stabilizer",
+      "bounding": [
+        2010.10197780321,
+        219.7621397695244,
+        697.8951016450815,
+        802.4703908302573
+      ],
+      "color": "#A88",
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.5964452910032715,
+      "offset": [
+        -134.8793148742551,
+        116.75867196549439
+      ]
+    },
+    "frontendVersion": "1.44.19",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "linkExtensions": [
+      {
+        "id": 26,
+        "parentId": 2
+      }
+    ],
+    "reroutes": [
+      {
+        "id": 1,
+        "pos": [
+          1614.621556939449,
+          148.13869678005034
+        ],
+        "linkIds": [
+          26
+        ]
+      },
+      {
+        "id": 2,
+        "parentId": 1,
+        "pos": [
+          1981.1643222848948,
+          155.97294199019439
+        ],
+        "linkIds": [
+          26
+        ]
+      }
+    ]
+  },
+  "version": 0.4
+}
